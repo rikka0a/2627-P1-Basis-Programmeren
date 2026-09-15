@@ -245,5 +245,7 @@ function mario(){
   rect(x+20, y+100, pixelsize*1, pixelsize*1)
   rect(x+80, y+100, pixelsize*1, pixelsize*1)
 
+
+  
 }
 
