@@ -5,6 +5,20 @@ let cloud4X = -120;
 let treeX = 60;
 let leafX = 70;
 let sunX = 700;
+let carspeed = 2;
+let carsuperspeed = 4;
+let car1X = 50;
+let car2X = 250;
+let car3X = 500;
+let car4X = 390;
+let testX = 50
+let explosion = false
+
+let img;
+
+function preload (){
+  img = loadImage('picture/boom.png')
+}
 
 
 function setup() {
@@ -13,6 +27,7 @@ function setup() {
 
 function draw() {
   background("lightblue");
+  
 
   //background//
     fill(76, 81, 82)
@@ -68,6 +83,48 @@ if(cloud4X > width +40){
       treeLeaves(leafX+150)
       treeLeaves(leafX+350)
 
+
+
+          car4X += carsuperspeed;
+          if (car4X > width - 150) {
+            car4X = -1200;
+            explosion = true
+            
+          }
+car4(car4X)
+          car1X += carspeed;
+          if (car1X > width + 120) {
+            car1X = -120;
+          }
+car1(car1X)
+          car2X += carspeed;
+          if (car2X > width + 120) {
+            car2X = -120;
+          }
+car2(car2X)
+          car1(car1X)
+          car3X += carspeed;
+          if (car3X > width + 120) {
+            car3X = -120;
+          }
+car3(car3X)
+
+          //testX += 7;
+          if (testX > width + 10) {
+            testX = -120; 
+            explosion = false
+             }
+          if (explosion == true) { 
+            testX += 6;
+            image(img, 650, 350, 150, 150);
+          }
+
+        else { textX = -1200
+
+        }
+          console.log(car4X)
+
+
 }
   
 function road(){
@@ -120,17 +177,64 @@ function cloud(x, y){
   circle(x, y, 50)
   circle(x + 35, y-10, 65)
   circle(x + 70, y, 50)
+
   
 }
 
-function sun (x){
+function sun(x){
 
   fill(255, 215, 84, 225)
 circle(x, 90, 100)
+}
+
+function car1(x){
+  fill(255, 48, 83) //red car color
+rect(x, 490, 95, 50)
+rect(x, 530, 120, 40)
+  fill(48, 43, 44) //wheel color
+circle(x+25, 570, 30)
+circle(x+90, 570, 30)
+  fill(180, 211, 212) //window color
+rect(x+20, 510, 60, 20)
 
 }
 
 
+function car2(x){
+  fill(32, 147, 150) //blue car color
+rect(x, 500, 95, 50)
+rect(x, 540, 120, 40)
+  fill(48, 43, 44) //wheel color
+circle(x+25, 580, 30)
+circle(x+90, 580, 30)
+  fill(180, 211, 212) //window color
+rect(x+20, 520, 60, 20)
+
+}
+
+function car3(x){
+  fill(255, 171, 238) //pink car color
+rect(x, 495, 95, 50)
+rect(x, 535, 120, 40)
+  fill(48, 43, 44) //wheel color
+circle(x+25, 575, 30)
+circle(x+90, 575, 30)
+  fill(180, 211, 212) //window color
+rect(x+20, 515, 60, 20)
+
+}
+
+function car4(x){
+  fill(107, 47, 145) //purple car color
+rect(x, 405, 95, 50)
+rect(x, 440, 120, 40)
+  fill(48, 43, 44) //wheel color
+circle(x+25, 480, 30)
+circle(x+90, 480, 30)
+  fill(180, 211, 212) //window color
+rect(x+20, 420, 60, 20)
+
+}
 
 
 
