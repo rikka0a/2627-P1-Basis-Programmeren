@@ -13,6 +13,7 @@ let car3X = 500;
 let car4X = 390;
 let testX = 50
 let explosion = false
+let stopLightColor = 0
 
 let img;
 
@@ -23,6 +24,12 @@ function preload (){
 
 function setup() {
   createCanvas(800, 600);
+}
+
+function keyPressed() {
+  if (keyCode === ENTER) {
+    stopLightColor = (stopLightColor + 1) % 3;
+  }
 }
 
 function draw() {
@@ -36,6 +43,7 @@ function draw() {
   triangle(800, 600, 200, 630, 650, 180)
   triangle(250, 500, 10, 500, 150, 300)
 
+  stopLight()
   road()
 
 
@@ -160,13 +168,28 @@ let y = 345
 let pixelsize = 20
   fill(133, 81, 49)
 rect(x, y, pixelsize*1, pixelsize*5)
-// isnt working yet??
+// isnt working yet?? Fixed
 }
 
 function treeLeaves(x){
 
   fill(71, 166, 33)
-  circle(x, 320, 90)
+circle(x, 320, 90)
+
+}
+
+function stopLight (){
+  
+  fill("black")
+  rect(525, 375, 15, 60)
+  rect(507, 280, 50, 100)
+
+    fill(stopLightColor === 0 ? "red" : "darkred")
+  circle(532, 300, 25)
+    fill(stopLightColor === 1 ? "orange" : "darkorange")
+  circle(532, 330, 25)
+    fill(stopLightColor === 2 ? "green" : "darkgreen")
+  circle(532, 360, 25)
 
 }
 
