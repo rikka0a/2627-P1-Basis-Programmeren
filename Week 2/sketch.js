@@ -100,22 +100,31 @@ if(cloud4X > width +40){
             
           }
 car4(car4X)
-          car1X += carspeed;
-          if (car1X > width + 120) {
-            car1X = -120;
-          }
+
+
+car1X = moveOrStop(car1X)
+if (car1X > width + 120) {
+  car1X = -120;
+}
+
 car1(car1X)
-          car2X += carspeed;
-          if (car2X > width + 120) {
-            car2X = -120;
-          }
+
+car2X = moveOrStop(car2X)
+if (car2X > width + 120) {
+  car2X = -120;
+}
+
 car2(car2X)
-          car1(car1X)
-          car3X += carspeed;
-          if (car3X > width + 120) {
-            car3X = -120;
-          }
+
+car1(car1X)
+
+car3X = moveOrStop(car3X)
+if (car3X > width + 120) {
+  car3X = -120;
+}
+
 car3(car3X)
+
 
           //testX += 7;
           if (testX > width + 10) {
@@ -130,7 +139,7 @@ car3(car3X)
         else { textX = -1200
 
         }
-          console.log(car4X)
+          
 
 
 }
@@ -168,7 +177,6 @@ let y = 345
 let pixelsize = 20
   fill(133, 81, 49)
 rect(x, y, pixelsize*1, pixelsize*5)
-// isnt working yet?? Fixed
 }
 
 function treeLeaves(x){
@@ -186,9 +194,9 @@ function stopLight (){
 
     fill(stopLightColor === 0 ? "red" : "darkred")
   circle(532, 300, 25)
-    fill(stopLightColor === 1 ? "orange" : "darkorange")
+    fill(stopLightColor === 1 ? "yellow" : "darkorange")
   circle(532, 330, 25)
-    fill(stopLightColor === 2 ? "green" : "darkgreen")
+    fill(stopLightColor === 2 ? "lightgreen" : "darkgreen")
   circle(532, 360, 25)
 
 }
@@ -260,5 +268,13 @@ rect(x+20, 420, 60, 20)
 }
 
 
+
+function moveOrStop(car) {
+  if (stopLightColor !== 0) {
+    car += carspeed;
+  }
+
+  return car
+}
 
 
