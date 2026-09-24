@@ -4,9 +4,12 @@ let cubeX3 = 410;
 let lineY1 = 90;
 let lineY2 = 250;
 let lineY3 = 410;
-let player1 = "#81ff94"
-let player2 = "#ff70d4"
+let player1 = "#d4b9ff"
+let player2 = "#a4eaff"
 let currentplayer = player1
+let cube1Clicked = false
+let cubeColor = "#ffd8fa"
+
 
 let img;
 let img2;
@@ -26,6 +29,7 @@ function setup() {
 
 function draw() {
   background(220);
+
   image(img, 0, 0, 700, 700)
   image(img2, 580, 580, 110, 110)
 
@@ -43,21 +47,28 @@ function draw() {
   TictactToeCube(cubeX2, lineY3)
   TictactToeCube(cubeX3, lineY3)
 
-}
-
-function mousePressed (){
-
+  noFill()
+  stroke(0)
+  circle(mouseX, mouseY, 10)
 
 }
 
 function TicTacToeBase (){
-  fill (141, 131, 143) //grey color
+  fill ("#c8e8e1")
 square (75, 75, 500, 10)
 
 
 }
 
 function TictactToeCube (x, y){
-  fill(195, 190, 196)
-square (x, y, 150, 10)
+if (cube1Clicked == true){
+  cubeColor = "red"
+}
+  fill(cubeColor)
+  square(x, y, 150, 10)
+}
+
+function mousePressed (){
+console.log ("click")
+cube1Clicked = true
 }
