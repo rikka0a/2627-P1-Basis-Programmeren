@@ -9,6 +9,8 @@ let player2 = "#a4eaff"
 let currentplayer = 1
 let cube1Clicked = false
 let cubeColor = "#ffd8fa"
+let gameState = 'playing'
+let winPlayer = 0
 
 //0: leeg
 //1: speler 1
@@ -34,6 +36,20 @@ function preload (){
 
 function setup() {
   createCanvas(700, 700);
+  let resetButton = createButton('Restart Game');
+  resetButton.position(285, 600);
+  resetButton.mousePressed(resetGame);
+}
+
+function resetGame() {
+  board = [
+    0, 0, 0,
+    0, 0, 0,
+    0, 0, 0
+  ];
+  currentplayer = 1;
+  gameState = 'playing';
+  winPlayer = 0;
 }
 
 function draw() {
@@ -59,6 +75,23 @@ function draw() {
   noFill()
   stroke(0)
   circle(mouseX, mouseY, 10)
+
+  if (gameState == 'win') {
+    fill("#fcfffa")
+    rect(125, 285, 400, 100, 10)
+    fill(0)
+    textAlign(CENTER, CENTER)
+    textSize(32)
+    text('Player ' + winPlayer + ' Won!', 325, 335)
+  }
+  else if (gameState == 'draw') {
+    fill("#ff9696")
+    rect(125, 285, 400, 100, 10)
+    fill(0)
+    textAlign(CENTER, CENTER)
+    textSize(32)
+    text('No Winner', 325, 335)
+  }
 
 }
 
@@ -92,6 +125,10 @@ else
 
 function mousePressed (){
 console.log ("click")
+
+if (gameState == 'win') {
+  return
+}
 
 let clicked = false;
 
@@ -144,4 +181,49 @@ else if (mouseX > cubeX3 && mouseX < cubeX3 + 150 &&
 if (clicked) {
   currentplayer = currentplayer == 1 ? 2 : 1;
 }
+
+if (board[0] == board[1] && board[1] == board[2] && board[0] !==0) {
+  gameState = 'win'
+  winPlayer = board[0]
+}
+
+if (board[0] == board[3] && board[3] == board[6] && board[0] !==0) {
+  gameState = 'win'
+  winPlayer = board[0]
+}
+
+if (board[0] == board[4] && board[4] == board[8] && board[0] !==0) {
+  gameState = 'win'
+  winPlayer = board[0]
+}
+
+if (board[1] == board[4] && board[4] == board[7] && board[1] !==0) {
+  gameState = 'win'
+  winPlayer = board[1]
+}
+
+if (board[2] == board[5] && board[5] == board[6] && board[2] !==0) {
+  gameState = 'win'
+  winPlayer = board[2]
+}
+
+if (board[3] == board[4] && board[4] == board[5] && board[3] !==0) {
+  gameState = 'win'
+  winPlayer = board[3]
+}
+
+if (board[6] == board[7] && board[7] == board[8] && board[6] !==0) {
+  gameState = 'win'
+  winPlayer = board[6]
+}
+
+if (board[2] == board[4] && board[4] == board[6] && board[2] !==0) {
+  gameState = 'win'
+  winPlayer = board[2]
+}
+
+if (gameState == 'playing' && board.every(cell => cell !== 0)) {
+  gameState = 'draw'
+}
+
 }
