@@ -73,4 +73,3 @@ function keyPressed() {
     movingOut = true;
   }
 }
-
