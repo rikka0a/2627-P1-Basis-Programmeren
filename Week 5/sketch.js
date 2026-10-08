@@ -1,6 +1,4 @@
 let img;
-let optionClicked = false;
-let optionButton;
 
 function preload (){
   img = loadImage('img/SV_BG.jpg');
@@ -8,18 +6,6 @@ function preload (){
 
 function setup() {
   createCanvas(800, 600);
-  
-  optionButton = createButton('hi');
-  optionButton.position(100, 300);
-  optionButton.size(250, 100);
-  optionButton.style('border-radius', '20px');
-  optionButton.style('border', 'none');
-  optionButton.style('font-size', '24px');
-  optionButton.style('background-color', '#f6bb6e');
-  optionButton.mousePressed(() => {
-    optionClicked = !optionClicked;
-    optionButton.style('background-color', optionClicked ? '#fed288' : '#f6bb6e');
-  });
 }
 
 function draw() {
@@ -28,6 +14,7 @@ function draw() {
   image(img, 0, 0, 800, 600);
 
   question()
+  options()
 }
 
 function question(){
@@ -37,4 +24,12 @@ function question(){
     
   fill ('#f6bb6e')
 rect (250, 70, 300, 200 , 20)
+}
+
+function options(){
+
+  rect (100, 300, 250, 100, 20)
+  rect (100, 300, 250, 100, 20)
+  rect (100, 300, 250, 100, 20)
+  rect (100, 300, 250, 100, 20)
 }
