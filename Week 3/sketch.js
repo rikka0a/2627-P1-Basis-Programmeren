@@ -28,7 +28,7 @@ let img3;
 let img4;
 
 function preload (){
-  img = loadImage('picture/cute.png')
+  panda = loadImage('picture/cute.png')
   img2 = loadImage('picture/UwU.png')
   img3 = loadImage('picture/cornerRU.png')
   img4 = loadImage ('picture/cornerLU.png')
@@ -55,7 +55,7 @@ function resetGame() {
 function draw() {
   background(220);
 
-  image(img, 0, 0, 700, 700)
+  image(panda, 0, 0, 700, 700)
   image(img2, 580, 580, 110, 110)
 
   TicTacToeBase()

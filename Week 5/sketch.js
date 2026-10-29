@@ -1,20 +1,21 @@
 let img;
 
 function preload (){
-  img = loadImage('img/SV_BG.jpg');
+  panda = loadImage('img/SV_BG.jpg');
+  test = loadImage ('img/normal.gif')
 }
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 700);
 }
 
 function draw() {
   background(220);
 
-  image(img, 0, 0, 800, 600);
+  image(panda, 0, 0, 800, 600);
+  image(test, 250, 200, 500, 500)
+ options()
 
-  question()
-  options()
 }
 
 function question(){
@@ -27,11 +28,11 @@ rect (250, 70, 300, 200 , 20)
 }
 
 function options(){
+  noStroke()
+fill ('#502e0297')
+rect (500, 350, 34, 32)
+rect (470, 500, 34, 32)
 
-  rect (100, 300, 250, 100, 20)
-  rect (100, 300, 250, 100, 20)
-  rect (100, 300, 250, 100, 20)
-  rect (100, 300, 250, 100, 20)
 }
 
 // 10 vragen over stardew valley
@@ -56,3 +57,4 @@ function options(){
 // b. Increases attack by 10%
 // c.  Increases critical strike chance by 10%
 // d. Gives you +1 defense
+

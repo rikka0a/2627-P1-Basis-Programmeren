@@ -15,10 +15,10 @@ let testX = 50
 let explosion = false
 let stopLightColor = 0
 
-let img;
+let panda;
 
 function preload (){
-  img = loadImage('picture/boom.png')
+  panda = loadImage('picture/boom.png')
 }
 
 
@@ -133,7 +133,7 @@ car3(car3X)
              }
           if (explosion == true) { 
             testX += 6;
-            image(img, 650, 350, 150, 150);
+            image(panda, 650, 350, 150, 150);
           }
 
         else { textX = -1200
