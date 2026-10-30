@@ -157,6 +157,7 @@ function mousePressed() {
   }
   if (button === -1) return;
   if (button === 0 && energy >= 50) return;
+  if (button === 1 && energy < 20) return;
 
   pandaSleeping = button === 0;
   pandaEating = button === 2;
@@ -186,7 +187,7 @@ function mousePressed() {
       pandaWashing = false;
       pandaWash.pause();
       pandaWash.reset();
-    }, 3600);
+    }, 1600);
   } else {
     pandaWash.pause();
     pandaWash.reset();
@@ -234,7 +235,7 @@ function mousePressed() {
     if (energy > 200) energy = 200;
     if (happiness > 200) happiness = 200
   } else if (button === 1) {
-      happiness += 25;
+      happiness += 75;
       energy -= 25;
     if (energy < 0) energy = 0;
     if (happiness > 200) happiness = 200;
@@ -242,7 +243,7 @@ function mousePressed() {
   } else if (button === 2) {
       hunger += 200;
       energy += 2;
-      happiness += 20;
+      happiness += 50;
     if (energy > 200) energy = 200;
     if (hunger > 200) hunger = 200;
     if (happiness > 200) happiness = 200; 

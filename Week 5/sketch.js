@@ -31,7 +31,7 @@ function options(){
   noStroke()
 fill ('#502e0297')
 rect (500, 350, 34, 32)
-rect (470, 500, 34, 32)
+rect (470, 500, 30, 15)
 
 }
 
